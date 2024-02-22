@@ -19,10 +19,16 @@ export const cartSlice = createSlice({
     addToCart: (state, action: PayloadAction) => {
       state.cart.push(action.payload);
     },
+    clearCart: (state) => {
+      state.cart = [];
+    },
+    removeItem: (state, action) => {
+      state.cart.slice(action.payload, 1);
+    },
   },
 });
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, clearCart, removeItem } = cartSlice.actions;
 
 // Other code such as selectors can use the imported `RootState` type
 export const getCart = (state: RootState) => state.cart.cart;
