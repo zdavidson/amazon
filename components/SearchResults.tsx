@@ -1,8 +1,9 @@
 import Box from "@mui/material/Box";
 import React from "react";
 import ProductCard from "./ProductCard";
+import { Product } from "@/types/supabase";
 
-const SearchResults = ({ products }: { products: any[] }) => {
+const SearchResults = ({ products }: { products: Product[] }) => {
   return (
     <Box
       sx={{
