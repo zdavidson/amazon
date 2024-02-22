@@ -6,6 +6,7 @@ import { ThemeProvider } from "@mui/material";
 import theme from "@/styles/theme";
 import { COLORS } from "@/styles/colors";
 import Header from "@/components/shared/Header";
+import Provider from "@/components/shared/Provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,12 +26,14 @@ export default function RootLayout({
         className={inter.className}
         style={{ backgroundColor: COLORS.lightGray, margin: 0 }}
       >
-        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <ThemeProvider theme={theme}>
-            <Header />
-            {children}
-          </ThemeProvider>
-        </AppRouterCacheProvider>
+        <Provider>
+          <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+            <ThemeProvider theme={theme}>
+              <Header />
+              {children}
+            </ThemeProvider>
+          </AppRouterCacheProvider>
+        </Provider>
       </body>
     </html>
   );

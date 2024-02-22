@@ -11,11 +11,14 @@ import { getRandomNumber } from "@/utils";
 import InStockText from "./shared/InStockText";
 import CustomButton from "./shared/CustomButton";
 import { useRouter } from "next/navigation";
+import { useAppDispatch } from "@/hooks/redux";
+import { addToCart } from "@/store/cartSlice";
 
 const ProductDetails = ({ product }: { product: any[] }) => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(1);
   const router = useRouter();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     setHours(getRandomNumber(12));
@@ -108,7 +111,12 @@ const ProductDetails = ({ product }: { product: any[] }) => {
                   <ProductLinkText>Deliver to New York 10011</ProductLinkText>
                 </Typography>
                 <InStockText />
-                <CustomButton onClick={() => router.push("/cart")}>
+                <CustomButton
+                  onClick={() => {
+                    dispatch(addToCart(prod));
+                    router.push("/cart");
+                  }}
+                >
                   Add to Cart
                 </CustomButton>
                 <CustomButton
