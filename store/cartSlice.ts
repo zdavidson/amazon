@@ -23,7 +23,7 @@ export const cartSlice = createSlice({
       state.cart = [];
     },
     removeItem: (state, action) => {
-      state.cart.slice(action.payload, 1);
+      state.cart.splice(action.payload, 1);
     },
   },
 });
