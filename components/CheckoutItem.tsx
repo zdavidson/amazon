@@ -1,10 +1,4 @@
-import {
-  Box,
-  FormControlLabel,
-  Radio,
-  RadioGroup,
-  Typography,
-} from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 import CustomBox from "./shared/CustomBox";
 import { Product } from "@/types/supabase";

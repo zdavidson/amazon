@@ -1,4 +1,3 @@
-import { Product } from "@/types/supabase";
 import { Box, Rating, Typography } from "@mui/material";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";

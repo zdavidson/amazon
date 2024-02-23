@@ -1,9 +1,9 @@
 "use client";
-import { useAppDispatch, useAppSelector } from "@/hooks/redux";
-import { clearCart, getCart } from "@/store/cartSlice";
+import { useAppSelector } from "@/hooks/redux";
+import { getCart } from "@/store/cartSlice";
 import { COLORS } from "@/styles/colors";
 import { Product } from "@/types/supabase";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 import CustomHR from "./shared/CustomHR";
 import CartItem from "./CartItem";
@@ -16,7 +16,6 @@ import Subtotal from "./shared/Subtotal";
 const Cart = () => {
   const cart = useAppSelector(getCart);
   const router = useRouter();
-  const dispatch = useAppDispatch();
 
   let total = 0;
 
@@ -52,7 +51,6 @@ const Cart = () => {
         {cart.map((item: Product) => {
           return <CartItem key={item.id} item={item} />;
         })}
-        {/* <Button onClick={() => dispatch(clearCart)}>Clear Cart</Button> */}
         <Subtotal
           items={cart.length}
           price={total}
