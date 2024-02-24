@@ -6,14 +6,14 @@ import { useParams } from "next/navigation";
 import React, { useEffect } from "react";
 
 const QueryPage = () => {
-  const { filteredProducts, getFilteredProducts, products, getProducts } =
-    useSupabase();
+  const { filteredProducts, getFilteredProducts } = useSupabase();
   const { query } = useParams();
 
   useEffect(() => {
     getFilteredProducts(query.toString());
   }, [getFilteredProducts, query]);
 
+  console.log(filteredProducts);
   return (
     <Container>
       <SearchResults products={filteredProducts} />

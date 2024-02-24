@@ -1,12 +1,12 @@
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import React from "react";
+import Dashboard from "@/components/Dashboard";
+import Container from "@mui/material/Container";
 
 const Home = () => {
   return (
-    <Box>
-      <Typography variant="h1">Home</Typography>
-    </Box>
+    <Container>
+      <Dashboard />
+    </Container>
   );
 };
 
